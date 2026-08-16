@@ -6,24 +6,34 @@ const stats = [
 
 const features = [
   {
-    title: 'Smart Recycling Education',
-    text: 'Learn how to separate waste correctly with easy visual guidance and localized tips.',
-    icon: '♻️',
+    title: 'Predict waste demand',
+    text: 'Forecast waste generation by ward, time, and type to deploy the right vehicle at the right time.',
+    icon: '📈',
   },
   {
-    title: 'AI Disposal Reminders',
-    text: 'Get timely nudges for proper disposal habits and collection schedule alerts.',
-    icon: '🔔',
+    title: 'AI route optimization',
+    text: 'Minimize travel distance and response time with smart routing across all active collection tasks.',
+    icon: '🛰️',
   },
   {
-    title: 'Gamified Eco Rewards',
-    text: 'Earn eco-badges, streaks, and community recognition for sustainable actions.',
+    title: 'Verified Green Rewards',
+    text: 'Reward citizens only after collection is verified, geo-validated, and evidence-backed.',
     icon: '🏆',
   },
   {
-    title: 'Personalized Recycling Tips',
-    text: 'Behavior-based recommendations help users recycle more effectively every week.',
-    icon: '🎯',
+    title: 'Illegal dumping detection',
+    text: 'Cluster repeated violations to detect high-risk dumping zones and trigger municipal action.',
+    icon: '🚨',
+  },
+  {
+    title: 'Waste Passport tracking',
+    text: 'Every pickup creates a transparent lifecycle from citizen report to recycling outcome.',
+    icon: '🧾',
+  },
+  {
+    title: 'Clean City Score',
+    text: 'Benchmark every ward using collection coverage, complaints, and recycling performance.',
+    icon: '🌿',
   },
 ];
 
@@ -35,10 +45,10 @@ const wasteTypes = [
 ];
 
 const milestones = [
-  'AI-driven route optimization',
-  'Real-time bin monitoring',
-  'Community recycling engagement',
-  'Predictive waste forecasting',
+  'AI-powered waste intelligence',
+  'Verified collection workflow',
+  'Rewards tied to real, validated action',
+  'Municipal command center and ward tracking',
 ];
 
 export default function Home() {
@@ -48,27 +58,31 @@ export default function Home() {
         <nav className="topbar">
           <div className="brand-wrap">
             <div className="brand-mark">S</div>
-            <span>SmartWaste</span>
+            <span>SmartWaste AI</span>
           </div>
           <div className="nav-links">
             <a href="#features">Features</a>
             <a href="#impact">Impact</a>
             <a href="#community">Community</a>
+            <a href="/about">About</a>
           </div>
-          <a href="/login" className="primary-btn link-btn">Get Started</a>
+          <div className="header-actions">
+            <a href="/login" className="secondary-btn link-btn">Login</a>
+            <a href="/register" className="primary-btn link-btn">Report Waste</a>
+          </div>
         </nav>
 
         <div className="hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">AI-powered waste intelligence</span>
-            <h1>Smarter streets. Cleaner cities. Better recycling habits.</h1>
+            <span className="eyebrow">Smart India Hackathon 2026</span>
+            <h1>Smart Waste. Smarter Cities.</h1>
             <p>
-              SmartWaste combines AI, real-time monitoring, and community engagement to
-              reduce overflow, improve collection efficiency, and promote sustainable living.
+              An AI-powered waste management ecosystem that predicts waste, optimizes collection,
+              verifies pickups, and rewards responsible citizens only for validated action.
             </p>
             <div className="cta-row">
-              <a href="/login" className="primary-btn link-btn">Launch Dashboard</a>
-              <a href="#features" className="secondary-btn link-btn">Explore Features</a>
+              <a href="/register" className="primary-btn link-btn">Report Waste</a>
+              <a href="#features" className="secondary-btn link-btn">Explore Smart City</a>
             </div>
             <div className="mini-stats">
               {stats.map((stat) => (
@@ -123,29 +137,29 @@ export default function Home() {
 
       <section className="impact-band" id="impact">
         <div>
-          <p className="section-kicker">Global challenge</p>
-          <h2>Waste generation continues to rise</h2>
+          <p className="section-kicker">Smart city challenge</p>
+          <h2>Waste generation keeps rising without precision collection.</h2>
         </div>
         <div className="impact-metrics">
           <div>
             <strong>1.3B+</strong>
-            <span>tons of plastic waste expected by 2040</span>
+            <span>plastic waste tons projected globally by 2040</span>
           </div>
           <div>
             <strong>3.4B+</strong>
-            <span>tons projected by 2050, up ~70%</span>
+            <span>tons expected by 2050 without smarter systems</span>
           </div>
           <div>
-            <strong>5.6%</strong>
-            <span>CAGR in global waste management market</span>
+            <strong>18%</strong>
+            <span>average route distance savings from AI optimization</span>
           </div>
         </div>
       </section>
 
       <section className="features" id="features">
         <div className="section-head">
-          <p className="section-kicker">Core features</p>
-          <h2>Everything needed for a smarter, cleaner community</h2>
+          <p className="section-kicker">Core ecosystem</p>
+          <h2>Designed to connect citizens, workers, and municipal teams in one intelligent loop.</h2>
         </div>
 
         <div className="feature-grid">
@@ -162,7 +176,7 @@ export default function Home() {
       <section className="analytics" id="community">
         <div className="analytics-card">
           <div className="section-head left">
-            <p className="section-kicker">Smart insights</p>
+            <p className="section-kicker">AI insights</p>
             <h2>Waste mix overview</h2>
           </div>
 
@@ -181,8 +195,8 @@ export default function Home() {
 
         <div className="analytics-card alt">
           <div className="section-head left">
-            <p className="section-kicker">AI optimization</p>
-            <h2>Operational advantages</h2>
+            <p className="section-kicker">System advantages</p>
+            <h2>Operational intelligence</h2>
           </div>
 
           <ul className="milestone-list">
@@ -195,10 +209,13 @@ export default function Home() {
 
       <section className="cta-strip">
         <div>
-          <p className="section-kicker">Why invest</p>
-          <h2>Build a cleaner future with AI-powered waste management.</h2>
+          <p className="section-kicker">Demo-ready platform</p>
+          <h2>From citizen report to verified reward and smart city analytics.</h2>
         </div>
-        <a href="/admin" className="primary-btn link-btn">Partner With Us</a>
+        <div className="cta-row compact">
+          <a href="/login" className="secondary-btn link-btn">Open demo</a>
+          <a href="/admin/dashboard" className="primary-btn link-btn">Municipal command center</a>
+        </div>
       </section>
     </main>
   );

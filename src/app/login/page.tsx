@@ -1,12 +1,15 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { demoCredentials } from '@/lib/mockData';
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('admin@smartwaste.com');
-  const [password, setPassword] = useState('admin123');
+  const [email, setEmail] = useState('citizen@smartwaste.ai');
+  const [password, setPassword] = useState('citizen123');
+  const [role, setRole] = useState('Citizen');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -18,7 +21,7 @@ export default function LoginPage() {
     const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, role }),
     });
 
     const data = await response.json();
@@ -29,21 +32,34 @@ export default function LoginPage() {
       return;
     }
 
-    router.push('/admin');
+    if (role === 'Citizen') router.push('/citizen/dashboard');
+    else if (role === 'Driver') router.push('/driver/dashboard');
+    else if (role === 'Municipal') router.push('/admin/dashboard');
+    else router.push('/admin/dashboard');
   }
 
   return (
     <main className="auth-shell">
-      <div className="auth-card">
+      <div className="auth-card auth-card-large">
         <div className="auth-brand">
           <div className="brand-mark">S</div>
           <div>
-            <p className="eyebrow">SmartWaste</p>
-            <h1>Admin login</h1>
+            <p className="eyebrow">SmartWaste AI</p>
+            <h1>Secure access</h1>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="auth-form">
+          <label>
+            Role
+            <select value={role} onChange={(e) => setRole(e.target.value)}>
+              <option>Citizen</option>
+              <option>Driver</option>
+              <option>Municipal</option>
+              <option>Administrator</option>
+            </select>
+          </label>
+
           <label>
             Email
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -61,9 +77,23 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="demo-note">
-          Demo credentials: admin@smartwaste.com / admin123
-        </p>
+        <div className="demo-list-wrap">
+          <p className="demo-label">Demo credentials</p>
+          <div className="demo-list">
+            {demoCredentials.map((entry) => (
+              <div key={entry.role} className="demo-row">
+                <strong>{entry.role}</strong>
+                <span>{entry.email}</span>
+                <small>{entry.password}</small>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="inline-links">
+          <Link href="/">Back home</Link>
+          <Link href="/register">Create account</Link>
+        </div>
       </div>
     </main>
   );

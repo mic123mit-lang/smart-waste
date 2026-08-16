@@ -1,75 +1,59 @@
-# SmartWaste
+# SmartWaste AI Platform
 
-SmartWaste is a modern waste management web application built with Next.js and React. It is designed to help city teams and waste operators monitor collection activity, review reports, manage field issues, and maintain a cleaner and more efficient waste system.
+SmartWaste AI is a production-style smart city waste management platform built with Next.js and React. It is designed to showcase how a city can unify citizens, drivers, municipal teams, and administrators around one AI-powered waste ecosystem.
 
-This project is created as a polished dashboard-style prototype with a working mock backend, realistic charts, dark/light mode, and full CRUD-style report management.
+The app focuses on a real product narrative for Smart India Hackathon 2026: citizen reporting, route efficiency, hotspot prediction, reward incentives, fraud monitoring, and cleaner urban operations.
 
-## Overview
+## What this demo includes
 
-SmartWaste includes:
+- AI-style smart city landing page and product storytelling
+- Citizen portal for complaint reporting and waste impact tracking
+- Driver dashboard for trip assignment and vehicle status
+- Municipal command center for route health, hotspots, and waste trends
+- Administrator dashboard for operational KPIs and platform oversight
+- Demo login system with role-based access
+- Mock API routes and in-memory data for a working MVP experience
+- Analytics visualizations, reward wallet flow, and cleanup reporting
+- Responsive dark-themed UI tailored for a smart civic product
 
-- a full multi-page dashboard
-- an admin login screen
-- a waste-report submission form
-- a CRUD management panel for waste records
-- route and collection insights
-- chart-based analytics
-- a map-style operational view
-- a clean and attractive responsive UI
+## Core product flows
 
-## Core features
-
-- Eco-themed landing page and marketing section
-- Admin dashboard with key performance metrics
-- Real chart visualizations for waste volumes and collection trends
-- Report submission form for community waste issues
-- CRUD-style admin panel for editing or removing waste reports
-- Simulated API backend using Next.js route handlers
-- Dark and light theme switcher
-- Map-like route visualization for city operations
-- Responsive layout for desktop and mobile screens
-- Easy local setup for team members with limited technical experience
+- Citizens can submit waste issues, monitor pickups, and view wallet rewards
+- Drivers can see assigned routes, vehicle states, and task progress
+- Municipal teams can inspect hotspots, collection metrics, and route efficiency
+- Administrators can review platform-level performance and operational insights
+- The platform uses mock data to simulate a realistic city waste management pipeline
 
 ## Tech stack
 
-- Next.js
-- React
+- Next.js 15
+- React 19
 - TypeScript
 - Recharts
-- CSS modules and custom styling
-- App Router API routes for mock backend logic
+- App Router API routes
+- Custom global CSS and responsive dashboard styling
 
-## Project pages
+## Demo credentials
 
-- Home page: landing overview and product showcase
-- Login page: demo admin authentication
-- Dashboard: key metrics, route alerts, charts, and operational summary
-- Report form: user submission for waste complaints or collection issues
-- Admin CRUD page: edit, delete, and manage submitted reports
+Use any of the following accounts in the login screen:
 
-## Demo login
-
-Use the following credentials to access the admin panel:
-
-- Email: admin@smartwaste.com
-- Password: admin123
+- Citizen: citizen@smartwaste.ai / citizen123
+- Driver: driver@smartwaste.ai / driver123
+- Municipal: municipal@smartwaste.ai / municipal123
+- Administrator: admin@smartwaste.com / admin123
 
 ## Run locally
-
-From the project folder, run:
 
 ```bash
 npm install
 npm run dev -- --hostname 0.0.0.0 --port 3000
 ```
 
-Then open your browser at:
+Open the app at:
 
 ```text
 http://localhost:3000
 ```
-
-This is designed to be simple for team members to clone and run using one terminal command flow.
 
 ## Production build
 
@@ -77,6 +61,8 @@ This is designed to be simple for team members to clone and run using one termin
 npm run build
 npm run start -- --hostname 0.0.0.0 --port 3000
 ```
+
+This project was verified with a successful production build before release.
 
 ## Project structure
 
@@ -86,8 +72,14 @@ smart-waste/
 │   ├── app/
 │   │   ├── admin/
 │   │   ├── api/
+│   │   ├── citizen/
+│   │   ├── driver/
 │   │   ├── login/
 │   │   ├── report/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   ├── how-it-works/
+│   │   ├── register/
 │   │   ├── globals.css
 │   │   ├── layout.tsx
 │   │   └── page.tsx
@@ -101,24 +93,24 @@ smart-waste/
 ├── next.config.mjs
 ├── tsconfig.json
 ├── .gitignore
+├── next-env.d.ts
 ├── README.md
 └── public/
 ```
 
 ## Notes
 
-This project uses mock data and in-memory API routes instead of a real database, so it can run easily without extra setup. It is intended as a polished demo/prototype for a smart waste management system and can be extended into a production application later.
+This is a demo-first implementation using mock data and API routes instead of a real database or production authentication system. The objective is to present a working, credible smart city MVP that can be expanded into a real platform with live services, geospatial data, and full backend integration.
 
-## Future enhancements
+## Possible next steps
 
-- Real database integration
-- JWT or secure authentication
-- Real GIS/map integration
-- Route optimization algorithms
-- Bin and truck management modules
-- Notifications and alert automation
-- AI-based waste forecasting and predictive analytics
+- Add real database persistence
+- Integrate secure authentication and role checks
+- Connect to live GIS and route optimization APIs
+- Add real-time notification delivery
+- Expand AI forecasting and fraud detection models
+- Integrate wallet and rewards backends
 
 ## License
 
-This project is for demonstration and educational use.
+This project is intended for demonstration, hackathon, and educational use.
